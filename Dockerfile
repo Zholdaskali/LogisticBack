@@ -1,5 +1,5 @@
 # Установка базового образа
-FROM adoptopenjdk:11-jdk-hotspot
+FROM adoptopenjdk:17-jdk-hotspot
 
 # Установка рабочей директории внутри контейнера
 WORKDIR /app
