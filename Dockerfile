@@ -1,5 +1,5 @@
 # Установка базового образа
-FROM adoptopenjdk:17-jdk-hotspot
+FROM eclipse-temurin:17-jdk
 
 # Установка рабочей директории внутри контейнера
 WORKDIR /app
