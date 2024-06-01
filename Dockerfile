@@ -7,11 +7,11 @@ WORKDIR /app
 # Копирование исходного кода проекта в контейнер
 COPY . /app
 
-# Копирование файла application.properties
-COPY src/main/resources/application.properties /app/src/main/resources/application.properties
+# Копирование файла application.yaml
+COPY src/main/resources/application.yaml /app/src/main/resources/application.yaml
 
-# Копирование скрипта базы данных
-COPY src/main/resources/sql/init.sql /app/src/main/resources/sql/init.sql
+# Копирование файла init.sql
+COPY src/main/resources/sql/init.sql /docker-entrypoint-initdb.d/init.sql
 
 # Копирование собранного JAR-файла
 COPY build/libs/*.jar /app/application.jar
