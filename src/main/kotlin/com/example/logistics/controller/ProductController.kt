@@ -24,8 +24,8 @@ class ProductController(
     ): MessagedResponse<List<Product>> {
         return productService.getByCustomerId(customerId).let(MessagedResponse.Companion::of)
     }
-    @PostMapping("/products")
-    fun createProduct(@RequestBody request: ProductRequest): ResponseEntity< MessagedResponse< Product>> {
+    @PostMapping("/add")
+    fun createProduct(@RequestBody request: ProductRequest): ResponseEntity< MessagedResponse<String>> {
         val customer = customerService.getById(request.product.customer.id)
         val warehouse = warehouseService.getById(request.product.warehouse.id)
 
@@ -39,13 +39,13 @@ class ProductController(
         )
 
         val createdProduct = productService.add(product)
-        return ResponseEntity.ok(MessagedResponse.of(createdProduct))
+        return ResponseEntity.ok(MessagedResponse.of("Продукт принят на склад"))
     }
     @DeleteMapping("{productId}")
     fun deleteProduct(
         @PathVariable productId: Long
     ): ResponseEntity<MessagedResponse<String>> {
         productService.delete(productId)
-        return ResponseEntity.ok(MessagedResponse.of("Product deleted successfully"))
+        return ResponseEntity.ok(MessagedResponse.of("Продукт удален из склад"))
     }
 }
