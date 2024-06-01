@@ -2,13 +2,13 @@ server:
   port: ${PORT:8080}
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/logistics
-    username: postgres
-    password: erke
+    url: jdbc:postgresql://dpg-cpdh677109ks73ehinv0-a:5432/logisticdb
+    username: ogisticback
+    password: fwPnJiwqAZqgEnPM3EgxASoyYZNO7hPl
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
