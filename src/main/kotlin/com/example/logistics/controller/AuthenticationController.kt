@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.*
 class AuthenticationController(private val authenticationService: AuthenticationService) {
 
     @PostMapping("/register")
-    fun register(@RequestBody registerRequest: RegisterRequest): Long? {
+    fun register(
+        @RequestBody registerRequest: RegisterRequest
+    ): Long? {
         return authenticationService.register(registerRequest.customerName, registerRequest.password, registerRequest.customerPhone)
     }
 

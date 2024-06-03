@@ -13,4 +13,7 @@ class WarehouseService(
     fun getById(warehouseId: Long): Warehouse {
         return warehouseRepository.findById(warehouseId).orElseThrow{ WarehouseNotFountException() }
     }
+    fun createWarehouse(warehouse: Warehouse): Warehouse {
+        return warehouseRepository.save(warehouse)
+    }
 }
